@@ -11,8 +11,20 @@ public interface Hotel {
     String getName();
 
     String getLocalizedName();
+    
+    String getHotelDestination();
+    
+    String getHotelDestinationRegionId();
+    
+    String getLongDestination();
 
     String getStreetAddress();
+    
+    String getCity();
+    
+    String getProvince();
+    
+    String getCountryCode();
 
     Coordinates getCoordinates();
 

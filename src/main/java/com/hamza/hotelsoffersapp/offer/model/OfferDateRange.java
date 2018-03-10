@@ -13,5 +13,5 @@ public interface OfferDateRange {
 
     Duration getLengthOfStay();
 
-    LocalDate getTravelEndDay();
+    LocalDate getTravelEndDate();
 }

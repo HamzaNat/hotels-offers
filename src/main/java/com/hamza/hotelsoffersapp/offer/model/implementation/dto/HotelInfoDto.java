@@ -48,13 +48,13 @@ public class HotelInfoDto {
     @JsonProperty("hotelCountryCode")
     private String hotelCountryCode;
     @JsonProperty("hotelLatitude")
-    private Float hotelLatitude;
+    private Double hotelLatitude;
     @JsonProperty("hotelLongitude")
-    private Float hotelLongitude;
+    private Double hotelLongitude;
     @JsonProperty("hotelStarRating")
     private String hotelStarRating;
     @JsonProperty("hotelGuestReviewRating")
-    private Float hotelGuestReviewRating;
+    private Double hotelGuestReviewRating;
     @JsonProperty("hotelReviewTotal")
     private Integer hotelReviewTotal;
     @JsonProperty("hotelImageUrl")
@@ -165,22 +165,22 @@ public class HotelInfoDto {
     }
 
     @JsonProperty("hotelLatitude")
-    public Float getHotelLatitude() {
+    public Double getHotelLatitude() {
         return hotelLatitude;
     }
 
     @JsonProperty("hotelLatitude")
-    public void setHotelLatitude(Float hotelLatitude) {
+    public void setHotelLatitude(Double hotelLatitude) {
         this.hotelLatitude = hotelLatitude;
     }
 
     @JsonProperty("hotelLongitude")
-    public Float getHotelLongitude() {
+    public Double getHotelLongitude() {
         return hotelLongitude;
     }
 
     @JsonProperty("hotelLongitude")
-    public void setHotelLongitude(Float hotelLongitude) {
+    public void setHotelLongitude(Double hotelLongitude) {
         this.hotelLongitude = hotelLongitude;
     }
 
@@ -195,12 +195,12 @@ public class HotelInfoDto {
     }
 
     @JsonProperty("hotelGuestReviewRating")
-    public Float getHotelGuestReviewRating() {
+    public Double getHotelGuestReviewRating() {
         return hotelGuestReviewRating;
     }
 
     @JsonProperty("hotelGuestReviewRating")
-    public void setHotelGuestReviewRating(Float hotelGuestReviewRating) {
+    public void setHotelGuestReviewRating(Double hotelGuestReviewRating) {
         this.hotelGuestReviewRating = hotelGuestReviewRating;
     }
 

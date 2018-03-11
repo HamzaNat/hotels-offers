@@ -3,7 +3,7 @@ You'll need
 * JDK 1.8 or above
 * Maven 3.2 or above
 
-Just `mvn package` the project and run the generated war artifact using `java -jar` command, or you can deploy the generated artifact to a Servlet 3.0+ container.
+Just `mvn package` the project and run the generated jar artifact using `java -jar` command.
 
 ## Assumptions
 * I'm assuming that query parameters in the first link in the exercise, namely *scenario*, *page*, *uid* and *productType* are fixed and I shouldn't manipulate their values nor extract information from them and show them to the end-user.

@@ -5,6 +5,7 @@ import com.hamza.hotelsoffersapp.offer.model.OfferRepository;
 import com.hamza.hotelsoffersapp.offer.model.filtering.Query;
 import com.hamza.hotelsoffersapp.offer.model.implementation.dto.RestResponseDto;
 import com.hamza.hotelsoffersapp.offer.model.implementation.http.GetApiEndpoint;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,9 @@ public class OfferRepositoryImpl implements OfferRepository {
     }
 
     private List<Offer> mapToOfferList(RestResponseDto response) {
+        if (response.getOffers().getHotel() == null) {
+            return new ArrayList();
+        }
         return response
                 .getOffers()
                 .getHotel()

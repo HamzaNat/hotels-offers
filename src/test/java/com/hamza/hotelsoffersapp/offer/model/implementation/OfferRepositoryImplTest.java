@@ -68,6 +68,13 @@ public class OfferRepositoryImplTest {
     }
 
     @Test
+    public void testFetchAll_NullList() {
+        ResponseEntity re = new ResponseEntity(createResponseDtoFromHotelList(null), HttpStatus.OK);
+        when(rest.getForEntity(endpoint.url(), RestResponseDto.class)).thenReturn(re);
+        assertEquals(repository.fetchAll().size(), 0);
+    }
+
+    @Test
     public void testFetchAll_PopulatedList() {
         List<HotelDto> list = new ArrayList();
 

@@ -13,10 +13,17 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.web.client.RestTemplate;
 import static org.mockito.Mockito.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestClientException;
 
 /**
@@ -25,6 +32,7 @@ import org.springframework.web.client.RestClientException;
  */
 public class OfferRepositoryImplTest {
 
+    private ApplicationContext applicationContext;
     private OfferRepositoryImpl repository;
     private RestTemplate rest;
     private GetApiEndpoint endpoint;
@@ -32,10 +40,11 @@ public class OfferRepositoryImplTest {
     @Before
     public void setup() {
         rest = mock(RestTemplate.class);
+        applicationContext = mock(ApplicationContext.class);
         endpoint = mock(GetApiEndpoint.class);
-
         when(endpoint.url()).thenReturn("");
-        repository = new OfferRepositoryImpl(rest, endpoint);
+        when(applicationContext.getBean("GetOffers", GetApiEndpoint.class)).thenReturn(endpoint);
+        repository = new OfferRepositoryImpl(rest, applicationContext);
     }
 
     @Test(expected = IllegalStateException.class)

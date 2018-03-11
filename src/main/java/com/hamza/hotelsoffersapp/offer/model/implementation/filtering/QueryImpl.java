@@ -23,7 +23,9 @@ public class QueryImpl implements Query {
 
     @Override
     public void with(String key, String value) {
-        map.put(key, value);
+        if (!"".equals(value)) {
+            map.put(key, value);
+        }
     }
 
     @Override

@@ -1,10 +1,10 @@
 package com.hamza.hotelsoffersapp.offer.model.implementation.filtering;
 
 import com.hamza.hotelsoffersapp.offer.model.filtering.Query;
-import java.util.AbstractMap;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 import com.hamza.hotelsoffersapp.offer.model.filtering.QueryMedia;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
  * @author Hamza
  */
 @Component
+@Scope("prototype")
 public class QueryImpl implements Query {
 
     NavigableMap<String, String> map;

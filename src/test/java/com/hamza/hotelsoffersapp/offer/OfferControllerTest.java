@@ -47,6 +47,6 @@ public class OfferControllerTest {
         when(repository.fetch(query)).thenThrow(RuntimeException.class);
         mvc.perform(get("/Offers"))
                 .andExpect(status().isInternalServerError())
-                .andExpect(model().size(1));
+                .andExpect(model().size(0));
     }
 }

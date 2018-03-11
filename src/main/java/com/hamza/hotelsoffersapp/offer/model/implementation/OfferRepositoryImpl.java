@@ -21,13 +21,13 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class OfferRepositoryImpl implements OfferRepository {
 
-    @Autowired
-    private ApplicationContext context;
+    private final ApplicationContext context;
     private final RestTemplate rest;
 
     @Autowired
-    public OfferRepositoryImpl(RestTemplate rest) {
+    public OfferRepositoryImpl(RestTemplate rest, ApplicationContext applicationContext) {
         this.rest = rest;
+        this.context = applicationContext;
     }
 
     /**

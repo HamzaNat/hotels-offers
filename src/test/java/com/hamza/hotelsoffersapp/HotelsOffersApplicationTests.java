@@ -1,7 +1,10 @@
 package com.hamza.hotelsoffersapp;
 
 import com.hamza.hotelsoffersapp.offer.model.OfferRepository;
-import com.hamza.hotelsoffersapp.offer.model.implementation.api.ApiEndpoint;
+import com.hamza.hotelsoffersapp.offer.model.filtering.Filter;
+import com.hamza.hotelsoffersapp.offer.model.filtering.FilterFactory;
+import com.hamza.hotelsoffersapp.offer.model.filtering.Query;
+import com.hamza.hotelsoffersapp.offer.model.implementation.http.ApiEndpoint;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +25,17 @@ public class HotelsOffersApplicationTests {
     @Autowired
     @Qualifier("GetOffers")
     ApiEndpoint apiEndpoint;
+    @Autowired
+    FilterFactory filterFactory;
+    @Autowired
+    Query query;
 
     @Test
     public void contextLoads() {
         assertNotNull(offerRepository);
         assertNotNull(restTemplate);
         assertNotNull(apiEndpoint);
+        assertNotNull(filterFactory);
+        assertNotNull(query);
     }
 }

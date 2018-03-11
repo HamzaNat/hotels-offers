@@ -1,12 +1,12 @@
 package com.hamza.hotelsoffersapp.offer.model.implementation;
 
 import com.hamza.hotelsoffersapp.offer.model.Offer;
-import com.hamza.hotelsoffersapp.offer.model.implementation.api.ApiEndpoint;
 import com.hamza.hotelsoffersapp.offer.model.implementation.dto.HotelDto;
 import com.hamza.hotelsoffersapp.offer.model.implementation.dto.HotelUrlsDto;
 import com.hamza.hotelsoffersapp.offer.model.implementation.dto.OfferDateRangeDto;
 import com.hamza.hotelsoffersapp.offer.model.implementation.dto.OffersDto;
 import com.hamza.hotelsoffersapp.offer.model.implementation.dto.RestResponseDto;
+import com.hamza.hotelsoffersapp.offer.model.implementation.http.GetApiEndpoint;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,12 +27,12 @@ public class OfferRepositoryImplTest {
 
     private OfferRepositoryImpl repository;
     private RestTemplate rest;
-    private ApiEndpoint endpoint;
+    private GetApiEndpoint endpoint;
 
     @Before
     public void setup() {
         rest = mock(RestTemplate.class);
-        endpoint = mock(ApiEndpoint.class);
+        endpoint = mock(GetApiEndpoint.class);
 
         when(endpoint.url()).thenReturn("");
         repository = new OfferRepositoryImpl(rest, endpoint);

@@ -1,4 +1,4 @@
-package com.hamza.hotelsoffersapp.offer.model.implementation.api;
+package com.hamza.hotelsoffersapp.offer.model.implementation.http;
 
 /**
  *

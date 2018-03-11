@@ -44,4 +44,6 @@ public interface Hotel {
 
     HotelUrls getUrls();
 
+    Region getRegion();
+
 }

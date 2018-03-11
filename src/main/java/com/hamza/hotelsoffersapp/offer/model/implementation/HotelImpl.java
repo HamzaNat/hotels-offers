@@ -4,6 +4,7 @@ import com.hamza.hotelsoffersapp.offer.model.Coordinates;
 import com.hamza.hotelsoffersapp.offer.model.Hotel;
 import com.hamza.hotelsoffersapp.offer.model.HotelPricingInfo;
 import com.hamza.hotelsoffersapp.offer.model.HotelUrls;
+import com.hamza.hotelsoffersapp.offer.model.Region;
 import com.hamza.hotelsoffersapp.offer.model.implementation.dto.HotelDto;
 import com.hamza.hotelsoffersapp.offer.model.implementation.dto.HotelInfoDto;
 
@@ -114,6 +115,11 @@ public class HotelImpl implements Hotel {
     @Override
     public HotelUrls getUrls() {
         return new HotelUrlsImpl(hotel.getHotelUrls());
+    }
+
+    @Override
+    public Region getRegion() {
+        return new RegionImpl(hotel.getDestination());
     }
 
 }

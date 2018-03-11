@@ -2,6 +2,7 @@ package com.hamza.hotelsoffersapp.offer.model.implementation;
 
 import com.hamza.hotelsoffersapp.offer.model.HotelUrls;
 import com.hamza.hotelsoffersapp.offer.model.implementation.dto.HotelUrlsDto;
+import java.io.UnsupportedEncodingException;
 
 /**
  *
@@ -17,12 +18,20 @@ public class HotelUrlsImpl implements HotelUrls {
 
     @Override
     public String getInfoSiteUrl() {
-        return hotelUrls.getHotelInfositeUrl();
+        try {
+            return java.net.URLDecoder.decode(hotelUrls.getHotelInfositeUrl(), "UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+            return "";
+        }
     }
 
     @Override
     public String getSearchResultUrl() {
-        return hotelUrls.getHotelSearchResultUrl();
+        try {
+            return java.net.URLDecoder.decode(hotelUrls.getHotelSearchResultUrl(), "UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+            return "";
+        }
     }
 
 }

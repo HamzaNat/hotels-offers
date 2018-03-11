@@ -103,34 +103,36 @@
                 <div th:case="0">
                     <h1>Your search does not match any offer.</h1>
                 </div>
-                <div th:each="offer : ${offers}" th:case="*">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <a href="#">
-                                <img class="img-fluid rounded mb-3 mb-md-0" th:src="${offer.hotel.imageUrl}" alt="">
-                            </a>
+                <div th:case="*">
+                    <div th:each="offer : ${offers}">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a href="#">
+                                    <img class="img-fluid rounded mb-3 mb-md-0" th:src="${offer.hotel.imageUrl}" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <sup th:if="${offer.hotel.vipAccess}" style="color: #999333">VIP</sup>
+                                <h3 th:text="${offer.hotel.name}" />
+                                <h6><a th:href="@{'Offers?destinationCity=' + ${offer.hotel.region.shortName}}" th:text="${offer.hotel.region.cityName}" data-toggle="tooltip" title="Click to see more hotels here"/></h6>
+                                <div><label>Rating: </label> <strong th:text="${offer.hotel.hotelStarRating}" /></div>
+                                <div><label>Guest review rating: </label> <strong th:text="${offer.hotel.guestReviewRating}" />
+                                    <em th:text="'(' + ${offer.hotel.totalReviewsCount} + ' reviews)'"/></div>
+                                <a class="btn btn-primary" th:href="${offer.hotel.urls.infoSiteUrl}" target="_blank">View hotel site</a>
+                                &nbsp;
+                                <a class="btn btn-primary" th:href="${offer.hotel.urls.searchResultUrl}" target="_blank">View search results</a>
+                            </div>
+                            <div class="col-md-2">
+                                <small th:text="${offer.hotel.pricingInfo.crossOutPriceValue} + ' ' + ${offer.hotel.pricingInfo.currency.displayName}" class="oldPrice"/>
+                                <h6 th:text="${#numbers.formatDecimal(offer.hotel.pricingInfo.crossOutPriceValue * (1 - offer.hotel.pricingInfo.percentSavings / 100), 0, 2)} + ' ' + ${offer.hotel.pricingInfo.currency.displayName}" /> 
+                                <div><label>Offer start date</label>
+                                    <h6 th:text="${offer.time.travelStartDate}"/></div>
+                                <div><label>Offer end date</label>
+                                    <h6 th:text="${offer.time.travelEndDate}"/></div>
+                            </div>
                         </div>
-                        <div class="col-md-8">
-                            <sup th:if="${offer.hotel.vipAccess}" style="color: #999333">VIP</sup>
-                            <h3 th:text="${offer.hotel.name}" />
-                            <h6><a th:href="@{'Offers?destinationCity=' + ${offer.hotel.region.shortName}}" th:text="${offer.hotel.region.cityName}" data-toggle="tooltip" title="Click to see more hotels here"/></h6>
-                            <div><label>Rating: </label> <strong th:text="${offer.hotel.hotelStarRating}" /></div>
-                            <div><label>Guest review rating: </label> <strong th:text="${offer.hotel.guestReviewRating}" />
-                                <em th:text="'(' + ${offer.hotel.totalReviewsCount} + ' reviews)'"/></div>
-                            <a class="btn btn-primary" th:href="${offer.hotel.urls.infoSiteUrl}" target="_blank">View hotel site</a>
-                            &nbsp;
-                            <a class="btn btn-primary" th:href="${offer.hotel.urls.searchResultUrl}" target="_blank">View search results</a>
-                        </div>
-                        <div class="col-md-2">
-                            <small th:text="${offer.hotel.pricingInfo.crossOutPriceValue} + ' ' + ${offer.hotel.pricingInfo.currency.displayName}" class="oldPrice"/>
-                            <h6 th:text="${#numbers.formatDecimal(offer.hotel.pricingInfo.crossOutPriceValue * (1 - offer.hotel.pricingInfo.percentSavings / 100), 0, 2)} + ' ' + ${offer.hotel.pricingInfo.currency.displayName}" /> 
-                            <div><label>Offer start date</label>
-                                <h6 th:text="${offer.time.travelStartDate}"/></div>
-                            <div><label>Offer end date</label>
-                                <h6 th:text="${offer.time.travelEndDate}"/></div>
-                        </div>
+                        <hr>
                     </div>
-                    <hr>
                 </div>
             </div>
         </div>

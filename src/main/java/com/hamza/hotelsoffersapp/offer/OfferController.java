@@ -45,6 +45,8 @@ public class OfferController {
             offers = repository.fetch(q);
         } catch (Throwable e) {
             model.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+            model.setViewName("InternalError");
+            return model;
         }
         model.addObject("offers", offers);
         return model;
